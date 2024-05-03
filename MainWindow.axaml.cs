@@ -1,61 +1,42 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace AnyaProject
 {
     public partial class MainWindow : Window
     {
-        private Border collapsiblePanel;
-        //public bool IsPanelVisible { get; set; } = false;
-
-        public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>()
-        {
-            new Product()
-            {
-                Name = "Петля для хлыста",
-                Manufacturer = "EQUIMAN, Китай",
-                Description = "Запасная петля для хлыста. Подходит для большинства хлыстов. Длина: 370 мм. Ширина: 12 мм.",
-                Price = 135,
-                Stock = 321
-            }
-        };
-
-        public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>()
-        {
-            new User()
-            {
-                UserName = "Annushka",
-                UserPassword = "1234",
-                UserStatus = "Queen"
-            },
-
-            new User()
-            {
-                UserName = "Dzyuba",
-                UserPassword = "Don't fucking touch my crucifixes!",
-                UserStatus = "Thief"
-            }
-        };
-
+        User user = new User();
+        ProductsWindow w = new ProductsWindow();
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = this;
-
-            ProductsWindow w = new ProductsWindow();
         }
 
-        private void InitializeComponent()
-        {            
-            AvaloniaXamlLoader.Load(this);
-            collapsiblePanel = this.FindControl<Border>("CollapsiblePanel");
-        }
-
-        private void TogglePanel_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void VoitiVAkkaynt(object sender, RoutedEventArgs e)
         {
-            // Изменяем видимость панели
-            collapsiblePanel.IsVisible = !collapsiblePanel.IsVisible;
+            if (!string.IsNullOrWhiteSpace(Name.Text)) //Если строка непустая, то проверяем наш список на наличие этих полей
+            {
+                User proverka = w.Users.FirstOrDefault(u => u.UserName == Name.Text && u.UserPassword == Password.Text);
+
+                if (proverka != null)
+                {
+                    // Вход выполнен успешно
+                    Oshibka.Text = null;
+                    ProductsWindow wp = new ProductsWindow(proverka);
+                    wp.Show();
+                }
+                else
+                {
+                    // Ошибка входа
+                    Oshibka.Text = "Неверно введены данные";
+                    Password.Clear();
+                }
+            }
         }
     }
 }

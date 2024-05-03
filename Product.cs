@@ -15,6 +15,21 @@ namespace AnyaProject
         private double _price;
         private int _stock;
 
+
+        private bool otobrazhenie;
+
+        public bool Otobrazhenie
+        {
+            get { return otobrazhenie; }
+            set
+            {
+                if (otobrazhenie != value)
+                {
+                    otobrazhenie = value;
+                    OnPropertyChanged("Otobrazhenie");
+                }
+            }
+        }
         public string Name
         {
             get { return _name; }
