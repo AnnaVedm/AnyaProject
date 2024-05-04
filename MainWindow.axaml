@@ -39,12 +39,22 @@
 		<Grid ShowGridLines="True" RowDefinitions="1.5*, 2*, *"
 			  ColumnDefinitions="*, 6*,*">
 
+			<Image Source="C:\Users\dlyau\OneDrive\Desktop\AnyaProject\Photos\sh.png" 
+				   Width="300" Height="300"
+				   Grid.Row="0" Grid.RowSpan="2"
+				   Grid.Column="0"/>
+			
 			<StackPanel Grid.Row="0" Grid.Column="1"
 						VerticalAlignment="Center">
 				<TextBlock Text="Авторизация"
 						   Classes="text"
 						   HorizontalAlignment="Center"
 						   FontSize="40"/>
+
+				<TextBlock Text="Скорее! ЛАШАДКИ вас уже ждут!"
+						   Classes="text"
+						   HorizontalAlignment="Center"
+						   FontSize="15"/>
 			</StackPanel>
 
 			<StackPanel Grid.Row="1" Grid.Column="1">

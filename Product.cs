@@ -30,7 +30,7 @@ namespace AnyaProject
                 }
             }
         }
-        public string Name
+        public string TovarName
         {
             get { return _name; }
             set
@@ -38,7 +38,7 @@ namespace AnyaProject
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged("Name");
+                    OnPropertyChanged("TovarName");
                 }
             }
         }

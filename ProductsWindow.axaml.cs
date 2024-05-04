@@ -47,7 +47,7 @@ namespace AnyaProject
             // Установка значения свойства IsAdmin для каждого элемента в ProductsList
             foreach (var product in Products)
             {
-                product.Otobrazhenie = queenUser.UserStatus == "Admin";
+                product.Otobrazhenie = queenUser.UserStatus == "Queen";
             }
         }
 
@@ -55,7 +55,7 @@ namespace AnyaProject
         {
             new Product()
             {
-                Name = "Петля для хлыста",
+                TovarName = "Петля для хлыста",
                 Manufacturer = "EQUIMAN, Китай",
                 Description = "Запасная петля для хлыста. Подходит для большинства хлыстов. Длина: 370 мм. Ширина: 12 мм.",
                 Price = 135,
@@ -90,6 +90,16 @@ namespace AnyaProject
         {
             // Изменяем видимость панели
             collapsiblePanel.IsVisible = !collapsiblePanel.IsVisible;
+        }
+
+        public void RedactButton(object sender, RoutedEventArgs e)
+        {
+            Button edittovar = (Button)sender;
+
+            Product editTovar = (Product)edittovar.DataContext;
+
+            Redactirovanie tovar = new Redactirovanie(editTovar);
+            tovar.Show();
         }
 
         private void Exit_ButtonClick(object sender, RoutedEventArgs e) //кнопка перехода обратно на окно авторизации
