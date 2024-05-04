@@ -98,7 +98,7 @@
 									IsVisible="{Binding Otobrazhenie}"
 									Click="RedactButton"
 									Background="#f7004d"
-									CornerRadius="20"
+									CornerRadius="21"
 									Foreground="White"/>
 
 							<Button Content="Удалить" Margin="0 10 10 0"
