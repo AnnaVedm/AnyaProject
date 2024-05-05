@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,9 +15,23 @@ namespace AnyaProject
         private string _description;
         private double _price;
         private int _stock;
-
+        private string _tovarImagePath;
 
         private bool otobrazhenie;
+
+
+        public string TovarImage
+        {
+            get { return _tovarImagePath;  }
+            set
+            {
+                if (_tovarImagePath != value)
+                {
+                    _tovarImagePath = value;
+                    OnPropertyChanged("TovarImage");
+                }
+            }
+        }
 
         public bool Otobrazhenie
         {

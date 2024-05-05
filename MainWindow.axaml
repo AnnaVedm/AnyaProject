@@ -36,7 +36,7 @@
 			</LinearGradientBrush>
 		</Border.Background>
 
-		<Grid ShowGridLines="True" RowDefinitions="1.5*, 2*, *"
+		<Grid ShowGridLines="False" RowDefinitions="1.5*, 2*, *"
 			  ColumnDefinitions="*, 6*,*">
 
 			<Image Source="C:\Users\dlyau\OneDrive\Desktop\AnyaProject\Photos\sh.png" 
